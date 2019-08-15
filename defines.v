@@ -1,5 +1,5 @@
 //General
-`define ZERO_DWORD 32'h00000000
+`define ZERO_DWORD 32'h0
 `define RST_ENABLE 1'b1         //Reset enabled
 `define RST_DISABLE 1'b0        //Reset disabled
 `define CHIP_ENABLE 1'b1
