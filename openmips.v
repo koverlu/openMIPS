@@ -23,31 +23,31 @@ wire id_wreg_o;
 
 //connect id_ex to ex
 wire[`ALU_OP_BUS] ex_aluop_i;
-wire[`ALU_SEL_BUS] ex_alusel_i
+wire[`ALU_SEL_BUS] ex_alusel_i;
 wire[`REG_ADDR_BUS] ex_wd_i;
 wire[`REG_BUS] ex_reg1_i;
 wire[`REG_BUS] ex_reg2_i;
 wire ex_wreg_i;
 
 //connect ex to ex_mem
-wire[`REG_ADDR_BUS] ex_wd_o,
-wire ex_wreg_o,
-wire[`REG_BUS] ex_wdata_o   
+wire[`REG_ADDR_BUS] ex_wd_o;
+wire ex_wreg_o;
+wire[`REG_BUS] ex_wdata_o;
 
 //connect ex_mem to mem
-wire[`REG_ADDR_BUS] mem_wd_i,
-wire mem_wreg_i,
-wire[`REG_BUS] mem_wdata_i,
+wire[`REG_ADDR_BUS] mem_wd_i;
+wire mem_wreg_i;
+wire[`REG_BUS] mem_wdata_i;
 
 //connect mem to mem_wb
-wire[`REG_ADDR_BUS] mem_wd_o,
-wire mem_wreg_o,
-wire[`REG_BUS] mem_wdata_o,
+wire[`REG_ADDR_BUS] mem_wd_o;
+wire mem_wreg_o;
+wire[`REG_BUS] mem_wdata_o;
 
 //connect mem_wb to wb
-wire[`REG_ADDR_BUS] wb_wd_i,
-wire wb_wreg_i,
-wire[`REG_BUS] wb_wdata_i,
+wire[`REG_ADDR_BUS] wb_wd_i;
+wire wb_wreg_i;
+wire[`REG_BUS] wb_wdata_i;
 
 //connect id to regfile
 wire reg1_read;
@@ -142,7 +142,7 @@ ex ex0(
     .reg1_i(ex_reg1_i),
     .reg2_i(ex_reg2_i),
     .wd_i(ex_wd_i),
-    .wreg_i(ex_wreg_i);
+    .wreg_i(ex_wreg_i),
     //to ex_mem
     .wd_o(ex_wd_o),
     .wreg_o(ex_wreg_o),
@@ -171,7 +171,7 @@ mem mem0(
     //to mem_wb
     .wd_o(mem_wd_o),
     .wreg_o(mem_wreg_o),
-    .wdata_o(mem_wdata_o),
+    .wdata_o(mem_wdata_o)
 );
 
 mem_wb mem_wb0(

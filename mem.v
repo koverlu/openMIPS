@@ -8,7 +8,7 @@ module mem(
 
     output reg[`REG_ADDR_BUS] wd_o,
     output reg wreg_o,
-    output reg[`REG_BUS] wdata_o,
+    output reg[`REG_BUS] wdata_o
 );
 
 always @(*) begin

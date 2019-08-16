@@ -1,4 +1,4 @@
-`include "define.v"
+`include "defines.v"
 module id(
     input wire rst,
     input wire[`INST_ADDR_BUS] pc_i,
@@ -22,10 +22,10 @@ module id(
 );
 
 //Get op code, and function code
-wire[5:0] op = inst_i[31:26]
-wire[4:0] op2 = inst_i[10:6]
-wire[5:0] op3 = inst_i[5:0]
-wire[4:0] op4 = inst_i[20:16]
+wire[5:0] op = inst_i[31:26];
+wire[4:0] op2 = inst_i[10:6];
+wire[5:0] op3 = inst_i[5:0];
+wire[4:0] op4 = inst_i[20:16];
 //Store the immediate data
 reg[`REG_BUS] imm;
 //Is valid

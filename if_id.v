@@ -15,7 +15,7 @@ module if_id(
             id_inst <= `ZERO_DWORD;
         end else begin
             id_pc <= if_pc;
-            id_inst <= id_inst;
+            id_inst <= if_inst;
         end
     end
 endmodule

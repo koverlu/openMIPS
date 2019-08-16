@@ -1,4 +1,4 @@
-`include "define.v"
+`include "defines.v"
 //32 32-bits General Purpose Register
 //Support 2 read operations and 1 write operation simultaneously
 module regfile(
@@ -21,34 +21,34 @@ module regfile(
 );
 
 reg[`REG_BUS] regs[0:`REG_NUM - 1];
-    //Write operation
-    always @(posedge clk) begin
-        if(rst == `RST_DISABLE) begin
-            if((we == `WRITE_ENABLE) && (waddr != `REG_NUM_LOG2'h0)) begin
-                reg[waddr] <= wdata;
-            end
-        end        
-    end
-
-    //Read1 operation
-    always @(*) begin
-        if(rst == `RST_ENABLE || re1 == `READ_DISABLE || raddr1 == `REG_NUM_LOG2'h0) begin
-            rdata1 <= `ZERO_DWORD; 
-        end else if (we == `WRITE_ENABLE && radd1 == waddr) begin
-            rdata1 <= wdata;        
-        end else begin
-            rdata1 <= reg[raddr1];
+//Write operation
+always @(posedge clk) begin
+    if(rst == `RST_DISABLE) begin
+        if((we == `WRITE_ENABLE) && (waddr != `REG_NUM_LOG2'h0)) begin
+            regs[waddr] <= wdata;
         end
-    end
+    end        
+end
 
-    //Read2 operation
-    always @(*) begin
-        if(rst == `RST_ENABLE || re2 == `READ_DISABLE || raddr2 == `REG_NUM_LOG2'h0) begin
-            rdata2 <= `ZERO_DWORD;          
-        end else if (we == `WRITE_ENABLE && radd2 == waddr) begin
-            rdata2 <= wdata;
-        end else if
-            rdata2 <= reg[raddr2];
-        end
+//Read1 operation
+always @(*) begin
+    if(rst == `RST_ENABLE || re1 == `READ_DISABLE || raddr1 == `REG_NUM_LOG2'h0) begin
+        rdata1 <= `ZERO_DWORD; 
+    end else if (we == `WRITE_ENABLE && raddr1 == waddr) begin
+        rdata1 <= wdata;        
+    end else begin
+        rdata1 <= regs[raddr1];
     end
+end
+
+//Read2 operation
+always @(*) begin
+    if(rst == `RST_ENABLE || re2 == `READ_DISABLE || raddr2 == `REG_NUM_LOG2'h0) begin
+        rdata2 <= `ZERO_DWORD;          
+    end else if (we == `WRITE_ENABLE && raddr2 == waddr) begin
+        rdata2 <= wdata;
+    end else begin
+        rdata2 <= regs[raddr2];
+    end
+end
 endmodule //regfile 

@@ -7,7 +7,7 @@ module inst_rom(
 
 reg[`INST_BUS] inst_mem[0:`INST_MEM_BYTES / 4 - 1];
 
-initial $readmemh("inst_rom.data", ins_mem);
+initial $readmemh("D:/project/openMIPS/inst_rom.data", inst_mem);
 
 always @(*) begin
     if(ce == `CHIP_DISABLE) begin

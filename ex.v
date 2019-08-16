@@ -6,7 +6,7 @@ module ex(
     input wire[`REG_BUS] reg1_i,
     input wire[`REG_BUS] reg2_i,
     input wire[`REG_ADDR_BUS] wd_i,
-    input wire wreg_i;
+    input wire wreg_i,
 
     output reg[`REG_ADDR_BUS] wd_o,
     output reg wreg_o,
@@ -26,6 +26,7 @@ always @(*) begin
             default: begin
                 logicout <= `ZERO_DWORD;
             end
+        endcase
     end
 end
 

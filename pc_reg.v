@@ -3,7 +3,7 @@ module pc_reg(
     input wire clk,
     input wire rst,
     output reg[`INST_ADDR_BUS] pc,
-    output reg ce,                      //Instruction ROM enable
+    output reg ce                      //Instruction ROM enable
 );
     always @ (posedge clk) begin
         if(rst == `RST_ENABLE) begin
