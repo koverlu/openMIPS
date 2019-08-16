@@ -16,8 +16,8 @@
 
 `define INST_ADDR_BUS 31:0      //Instruction ROM address bus
 `define INST_BUS 31:0           //Instruction ROM data bus
-`define INST_MEM_NUM 131071     //ROM size: 128KB
-`define INST_MEM_NUM_LOG2 17    //Actual instruction address width
+`define INST_MEM_BYTES 131072     //ROM size: 128KB
+`define INST_MEM_BYTES_LOG2 17    //Actual instruction address width
 //GPRs define
 `define REG_ADDR_BUS 4:0    //32 GPRs need 5 bits address bus
 `define REG_BUS 31:0        //GPRs data bus
